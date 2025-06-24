@@ -1,5 +1,5 @@
 // Zmień ten URL, jeśli Twój backend działa na innym porcie lub adresie
-const API_URL = 'http://localhost:5000/api/notes'; 
+const API_URL = 'http://localhost:5001/api/notes'; 
 
 async function fetchNotes() {
     try {

@@ -10,7 +10,7 @@ note_id_counter = 1
 
 @app.route('/api/notes', methods=['GET'])
 def get_notes():
-    return jsonify(notes_db)
+    return jsonify(notes_db) # <--- Tak wyglądała oryginalna, działająca wersja
 
 @app.route('/api/notes', methods=['POST'])
 def add_note():

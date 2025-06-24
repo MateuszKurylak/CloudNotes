@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Dockerfile
+.dockerignore
+# Możesz tu dodać inne pliki/katalogi specyficzne dla Twojego lokalnego developmentu,
+# których nie chcesz w obrazie, np. .vscode/, .idea/

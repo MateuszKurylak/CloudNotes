@@ -1,0 +1,36 @@
+version: '3.8' # Określa wersję składni pliku Docker Compose
+
+services:
+  # Definicja usługi backendu
+  backend:
+    build:
+      context: ./app/backend # Ścieżka do katalogu, gdzie znajduje się Dockerfile backendu
+      dockerfile: Dockerfile # Nazwa pliku Dockerfile (domyślna, ale można podać jawnie)
+    image: cloudnotes-backend-compose # Nazwa obrazu, który zostanie zbudowany (opcjonalnie)
+    container_name: cloudnotes-backend-container # Nazwa dla uruchomionego kontenera
+    ports:
+      - "5001:5000" # Mapowanie portu: HOST:KONTAINER
+    # Opcjonalnie: można dodać zmienne środowiskowe, jeśli byłyby potrzebne inaczej niż w Dockerfile
+    # environment:
+    #   - FLASK_ENV=development 
+    #   - FLASK_DEBUG=1
+    #   - FLASK_RUN_HOST=0.0.0.0
+    # Ponieważ FLASK_RUN_HOST jest już w Dockerfile, nie jest to tu krytyczne
+    volumes: # Mapowanie woluminów dla developmentu (hot-reloading) - opcjonalne
+      - ./app/backend:/app # Mapuje lokalny katalog ./app/backend do /app w kontenerze
+                           # Zmiany w lokalnym kodzie będą odzwierciedlane w kontenerze.
+                           # Flask w trybie debug (domyślnie w naszym app.py) powinien przeładować.
+    restart: unless-stopped # Polityka restartu kontenera
+
+  # Definicja usługi frontendu
+  frontend:
+    build:
+      context: ./app/frontend
+      dockerfile: Dockerfile
+    image: cloudnotes-frontend-compose
+    container_name: cloudnotes-frontend-container
+    ports:
+      - "8080:80"
+    depends_on: # Określa, że frontend powinien startować po backendzie (głównie kolejność startu)
+      - backend
+    restart: unless-stopped

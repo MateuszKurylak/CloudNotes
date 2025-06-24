@@ -1,0 +1,4 @@
+Dockerfile
+.dockerignore
+# Możesz tu dodać inne pliki/katalogi, np. .vscode/, .idea/
+# jeśli nie chcesz ich w obrazie, a nie ma ich w globalnym .gitignore
