@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+app/backend/venv/
+*.env
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Node (jeśli kiedykolwiek byśmy użyli np. do budowania frontendu)
+node_modules/
+npm-debug.log
+yarn-error.log
