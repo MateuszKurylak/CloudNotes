@@ -4,10 +4,10 @@ name: CloudNotes CI Pipeline
 on:
   push:
     branches:
-      - main # Uruchom przy push do gałęzi 'main'
+      - master # Uruchom przy push do gałęzi 'main'
   pull_request:
     branches:
-      - main # Uruchom przy tworzeniu/aktualizacji Pull Requesta do 'main'
+      - master # Uruchom przy tworzeniu/aktualizacji Pull Requesta do 'main'
 
 jobs:
   build-and-push-images:
