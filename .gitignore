@@ -1,3 +1,9 @@
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+# *.tfvars # Jeśli będziesz używać plików .tfvars z danymi wrażliwymi, odkomentuj
+
 # Python
 __pycache__/
 *.py[cod]
